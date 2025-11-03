@@ -1,2 +1,2 @@
 # TangSim
-Application Mobile d egestion commercial pour commercant independant 
+Application Mobile de gestion commercial pour commercant independant fait en MAUI
