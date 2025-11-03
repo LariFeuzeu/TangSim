@@ -1,0 +1,2 @@
+int raw aboutassets 0x7f010000
+int raw splash 0x7f010001

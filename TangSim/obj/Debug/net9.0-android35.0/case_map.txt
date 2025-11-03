@@ -1,0 +1,12 @@
+images\add;images\add
+images\cart;images\cart
+images\code;images\code
+images\dotnet_bot;images\dotnet_bot
+images\home;images\home
+images\inve;images\inve
+images\menu;images\menu
+images\pan2;images\pan2
+images\tangs;images\tangs
+images\ts;images\ts
+raw\aboutassets;raw\AboutAssets
+raw\splash;raw\splash

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TangSim.View.AjoutView"
+             Title="Enregistrer Article"
+             >
+
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand" Padding="0">
+   
+        <!-- Encapsulatio dans un Frame -->
+        <Frame Padding="25"
+           BackgroundColor="Transparent"
+           HasShadow="True"
+           Margin="0,0,10,0"
+           CornerRadius="40"
+           WidthRequest="350"
+           HeightRequest="600"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           BorderColor="#E0E0E0">
+            <!-- Gris clair pour la bordure -->
+
+            <!-- Contenu -->
+            <StackLayout Spacing="25" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                <!-- Section image et titre -->
+                <Grid ColumnSpacing="20"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Cadre circulaire -->
+                    <Frame Padding="0"
+                            CornerRadius="70"
+                             WidthRequest="140"
+                             HeightRequest="140"
+                             BackgroundColor="White"
+                             IsClippedToBounds="True"
+                             HasShadow="True">
+
+                        <!-- Image qui remplit tout le cercle -->
+                        <Image Source="{Binding ImageSource, FallbackValue='ts.png'}"
+                                Aspect="AspectFill"
+      
+                                 HorizontalOptions="Fill"
+                                 VerticalOptions="Fill"/>
+                    </Frame>
+
+                    <!-- Nom de l'article -->
+                    <Label Grid.Column="1"
+                       Text="{Binding Nom}"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Center"
+                       TextColor="#006633" />
+                    <!-- Vert pour le nom de l'article -->
+                </Grid>
+
+                <!-- Champ : Nom de l'article -->
+                            <Frame HasShadow="True"
+                                  BorderColor="#ECECEC"
+                                  CornerRadius="12"
+                                  Padding="0"
+                                  BackgroundColor="#F5F5F5">
+                                     <Entry x:Name="QteApprovEntry" 
+                              Placeholder="Nom de l'aricle" 
+                              Text="{Binding Nom}" 
+                                       
+                              FontSize="18"
+                              TextColor="#2C3E50"
+                              PlaceholderColor="#BDC3C7"
+                                HeightRequest="50" />   
+                            </Frame>
+
+                <!-- Champ : Prix Unitaire -->
+                <Frame 
+                        CornerRadius="12"
+                     BorderColor="#ECECEC"
+                   Padding="0"
+                   HasShadow="True">
+                    <Entry Placeholder="Prix Unitaire"
+                       Text="{Binding PrixU}"
+                       Keyboard="Numeric"
+                       FontSize="16"
+                       TextColor="#34495E"                     
+                       BackgroundColor="#F5F5F5"
+                       HeightRequest="50" />
+                </Frame>
+
+                <!-- Champ : Quantité en stock -->
+                <Frame 
+                     BorderColor="#ECECEC"
+                        CornerRadius="12"
+                   Padding="0"
+                   HasShadow="True">
+                    <Entry Placeholder="Quantité"
+                       Text="{Binding QteStock}"
+                       Keyboard="Numeric"
+                       FontSize="16"
+                       TextColor="#34495E" 
+                         BackgroundColor="#F5F5F5"
+                        HeightRequest="50" />
+                </Frame>
+
+                <!-- Bouton : Ajouter une image -->
+                <Frame CornerRadius="15"
+                   BorderColor="#E0E0E0"
+                   Padding="0"
+                   HasShadow="True"
+                   BackgroundColor="Transparent">
+                    <Button Text="Ajouter une image"
+                        Command="{Binding AddImageCommand}"
+                                  BackgroundColor="#db9303" 
+                       
+                            TextColor="White"
+                        FontSize="16"
+                        HeightRequest="50"
+                        CornerRadius="15"
+                        HorizontalOptions="FillAndExpand" />
+                </Frame>
+
+                <!-- Bouton : Enregistrer -->
+                <Frame CornerRadius="25"
+                   BorderColor="White"
+                   Padding="0"
+                   HasShadow="True"
+                   BackgroundColor="Transparent">
+                    <Button Text="Enregistrer"
+                        Command="{Binding AddArticlesCommand}"
+                         BackgroundColor="#006633"
+                            TextColor="White"
+                        FontSize="18"
+                        HeightRequest="50"
+                        CornerRadius="25"
+                        Padding="10"
+                        HorizontalOptions="FillAndExpand" />
+                </Frame>
+            </StackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>

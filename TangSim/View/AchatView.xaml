@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TangSim.View.AchatView"
+             xmlns:controls="clr-namespace:TangSim.ViewModels"
+             xmlns:converters="clr-namespace:TangSim.Converters"
+             Title="AchatView">
+
+    <!-- Barre de navigation personnalisée -->
+    <Shell.TitleView>
+        <AbsoluteLayout>
+            <Label Text="Liste des Articles"
+                   FontSize="19"
+                   Margin="20,20,20,0"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Start"
+                   TextColor="#333" />
+            <!-- ImageButton pour l'icône du panier -->
+            <ImageButton Source="pan2.png" 
+                         WidthRequest="40" HeightRequest="40"
+                         Command="{Binding VoirPanierCommand}"
+                         AbsoluteLayout.LayoutFlags="PositionProportional" 
+                         AbsoluteLayout.LayoutBounds="1, 0.7, AutoSize, AutoSize" />
+
+            <!-- Badge superposé -->
+            <Frame BackgroundColor="Red" CornerRadius="12" Padding="0" WidthRequest="24" HeightRequest="24"
+                   AbsoluteLayout.LayoutFlags="PositionProportional" 
+                   AbsoluteLayout.LayoutBounds="0.92, 0.25, AutoSize, AutoSize"
+                   IsVisible="{Binding NombreArticlesDansPanier, Converter={StaticResource GreaterThanZeroConverter}}">
+                <Label Text="{Binding NombreArticlesDansPanier}" 
+                       TextColor="White" FontSize="12" FontAttributes="Bold" 
+                       HorizontalOptions="Center" VerticalOptions="Center" />
+            </Frame>
+        </AbsoluteLayout>
+    </Shell.TitleView>
+
+    <!-- Conteneur principal pour le contenu de la page -->
+    <StackLayout Spacing="10">
+        <!-- CollectionView simplifiée -->
+        <CollectionView ItemsSource="{Binding Articles}" 
+                        SelectionMode="None"
+            x:Name="collectionView"
+                        BackgroundColor="Transparent"
+                        VerticalOptions="FillAndExpand" 
+                        HorizontalOptions="FillAndExpand">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!-- Utilisation d'un Grid pour une disposition propre et bien alignée -->
+                    <Grid Padding="0" Margin="2" BackgroundColor="White" 
+                          HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                        <!-- Définir les lignes et les colonnes du Grid -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Image de l'article avec coins arrondis -->
+                        <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent" 
+                               CornerRadius="30" HasShadow="False" Padding="0" HorizontalOptions="Start" 
+                               WidthRequest="60" HeightRequest="60">
+                            <Image Source="{Binding ImagePath}"
+                                   HeightRequest="60" WidthRequest="60" 
+                                   Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                        </Frame>
+
+                        <!-- Nom de l'article -->
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Nom}" 
+                               FontSize="18" FontAttributes="Bold" TextColor="#333" 
+                               VerticalOptions="Center" HorizontalOptions="Start" 
+                               Padding="8,0,0,0" />
+
+                        <!-- Quantité en stock -->
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding QteStock, StringFormat='{0} en stock'}" 
+                               FontSize="16" TextColor="#db9303" 
+                               VerticalOptions="Center" HorizontalOptions="Start" 
+                               Padding="3,0,0,0" Margin="0,40,10,0" />
+
+                        <!-- Prix de l'article -->
+                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding PrixU, StringFormat='Prix: {0:C}'}" 
+                               FontSize="16" TextColor="#006633" 
+                               VerticalOptions="Center" HorizontalOptions="End" Padding="5,0"/>
+
+                        <!-- Ajout du TapGestureRecognizer -->
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Tapped="OnArticleTapped" 
+                                CommandParameter="{Binding .}"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

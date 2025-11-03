@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TangSim.View.EditerView"
+             Title="EditerView">
+
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="CenterAndExpand" Padding="0">
+        <!-- Titre du formulaire -->
+        <Label Text="Modifier un Produit"
+               FontSize="26"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               TextColor="#006633"
+               Padding="0,0,0,0" />
+
+        <!-- Encapsulation dans un Frame -->
+        <Frame Padding="25"
+               BackgroundColor="Transparent"
+               HasShadow="True"
+               CornerRadius="40"
+               WidthRequest="350"
+               HeightRequest="610" 
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               BorderColor="#E0E0E0">
+
+            <!-- Contenu -->
+            <StackLayout Spacing="25" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+
+                <!-- Section pour l'Image du Produit -->
+                <Frame HasShadow="True"
+                       BorderColor="#ECECEC"
+                       CornerRadius="70"
+                       Padding="0"
+                       BackgroundColor="White"
+                       HorizontalOptions="StartAndExpand">
+                    <StackLayout>
+                        <!-- Affichage de l'image du produit -->
+                        <Image Source="{Binding ImageSource, FallbackValue='images/default_image.png'}"
+                               WidthRequest="120"
+                               HeightRequest="120"
+                               Aspect="AspectFill"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+
+                        
+                    </StackLayout>
+                </Frame>
+
+                <!-- Section pour le Nom de l'article -->
+                <Frame HasShadow="True"
+                       BorderColor="#ECECEC"
+                       CornerRadius="12"
+                       Padding="0"
+                       BackgroundColor="White">
+                    <Entry Placeholder="Nom de l'article"
+                           Text="{Binding Nom}"
+                           FontSize="18"
+                           TextColor="#2C3E50"
+                           PlaceholderColor="#BDC3C7"
+                           HeightRequest="50" />
+                </Frame>
+
+                <!-- Section pour le Prix Unitaire -->
+                <Frame HasShadow="True"
+                       BorderColor="#ECECEC"
+                       CornerRadius="12"
+                       Padding="0"
+                       BackgroundColor="White">
+                    <Entry Placeholder="Prix Unitaire"
+                           Text="{Binding PrixU}"
+                           FontSize="16"
+                           TextColor="#34495E"
+                           Keyboard="Numeric"
+                           HeightRequest="50" />
+                </Frame>
+
+                <!-- Section pour la Quantité en Stock -->
+                <Frame HasShadow="True"
+                       BorderColor="#ECECEC"
+                       CornerRadius="12"
+                       Padding="0"
+                       BackgroundColor="White">
+                   
+                </Frame>
+                <!-- Bouton pour modifier l'image -->
+                <Button Text="Modifier l'image"
+                        Command="{Binding AddImageCommand}" 
+                        BackgroundColor="#db9303"
+                        TextColor="White"
+                        FontSize="16"
+                        HeightRequest="40"
+                        CornerRadius="12"
+                        HorizontalOptions="Center" />           
+
+                <!-- Bouton Modifier -->
+                <Frame CornerRadius="15"
+                       BorderColor="#E0E0E0"
+                       Padding="0"
+                       HasShadow="True"
+                       BackgroundColor="Transparent">
+                    <Button Text="Modifier"
+                            Command="{Binding UpdateArticleCommand}"
+                            Clicked="ModifArt_Clicked"
+                            BackgroundColor="#db9303"
+                            TextColor="White"
+                            FontSize="16"
+                            HeightRequest="50"
+                            CornerRadius="15"
+                            HorizontalOptions="FillAndExpand" />
+                </Frame>
+
+            </StackLayout>
+        </Frame>
+    </Grid>
+
+</ContentPage>

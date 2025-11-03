@@ -1,0 +1,175 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|c:\\users\\wayshop\\source\\repos\\tangsim\\tangsim\\tangsim.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|solutionrelative:tangsim\\tangsim.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|c:\\users\\wayshop\\source\\repos\\tangsim\\tangsim\\view\\achatview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|solutionrelative:tangsim\\view\\achatview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|c:\\users\\wayshop\\source\\repos\\tangsim\\tangsim\\view\\panierview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|solutionrelative:tangsim\\view\\panierview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|c:\\users\\wayshop\\source\\repos\\tangsim\\tangsim\\viewmodels\\paniervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|solutionrelative:tangsim\\viewmodels\\paniervm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|c:\\users\\wayshop\\source\\repos\\tangsim\\tangsim\\view\\ajoutview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|solutionrelative:tangsim\\view\\ajoutview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|c:\\users\\wayshop\\source\\repos\\tangsim\\tangsim\\view\\achatview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|solutionrelative:tangsim\\view\\achatview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|c:\\users\\wayshop\\source\\repos\\tangsim\\tangsim\\viewmodels\\articlevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|solutionrelative:tangsim\\viewmodels\\articlevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|c:\\users\\wayshop\\source\\repos\\tangsim\\tangsim\\view\\articleview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E026088-F0AE-40CA-8C9C-FB6BE8F2E028}|TangSim\\TangSim.csproj|solutionrelative:tangsim\\view\\articleview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 37,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PanierView.xaml",
+              "DocumentMoniker": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\View\\PanierView.xaml",
+              "RelativeDocumentMoniker": "TangSim\\View\\PanierView.xaml",
+              "ToolTip": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\View\\PanierView.xaml",
+              "RelativeToolTip": "TangSim\\View\\PanierView.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-10T23:42:11.578Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TangSim.csproj",
+              "DocumentMoniker": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\TangSim.csproj",
+              "RelativeDocumentMoniker": "TangSim\\TangSim.csproj",
+              "ToolTip": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\TangSim.csproj",
+              "RelativeToolTip": "TangSim\\TangSim.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAQwIAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-10T23:17:08.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AjoutView.xaml",
+              "DocumentMoniker": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\View\\AjoutView.xaml",
+              "RelativeDocumentMoniker": "TangSim\\View\\AjoutView.xaml",
+              "ToolTip": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\View\\AjoutView.xaml",
+              "RelativeToolTip": "TangSim\\View\\AjoutView.xaml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-10T23:14:00.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ArticleView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\View\\ArticleView.xaml.cs",
+              "RelativeDocumentMoniker": "TangSim\\View\\ArticleView.xaml.cs",
+              "ToolTip": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\View\\ArticleView.xaml.cs",
+              "RelativeToolTip": "TangSim\\View\\ArticleView.xaml.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAkwDMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T22:59:11.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ArticleVM.cs",
+              "DocumentMoniker": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\ViewModels\\ArticleVM.cs",
+              "RelativeDocumentMoniker": "TangSim\\ViewModels\\ArticleVM.cs",
+              "ToolTip": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\ViewModels\\ArticleVM.cs",
+              "RelativeToolTip": "TangSim\\ViewModels\\ArticleVM.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAIwGQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T22:57:44.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AchatView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\View\\AchatView.xaml.cs",
+              "RelativeDocumentMoniker": "TangSim\\View\\AchatView.xaml.cs",
+              "ToolTip": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\View\\AchatView.xaml.cs",
+              "RelativeToolTip": "TangSim\\View\\AchatView.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-10T21:54:04.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AchatView.xaml",
+              "DocumentMoniker": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\View\\AchatView.xaml",
+              "RelativeDocumentMoniker": "TangSim\\View\\AchatView.xaml",
+              "ToolTip": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\View\\AchatView.xaml",
+              "RelativeToolTip": "TangSim\\View\\AchatView.xaml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABsAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-10T21:53:49.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "panierVM.cs",
+              "DocumentMoniker": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\ViewModels\\panierVM.cs",
+              "RelativeDocumentMoniker": "TangSim\\ViewModels\\panierVM.cs",
+              "ToolTip": "C:\\Users\\WAYSHOP\\source\\repos\\TangSim\\TangSim\\ViewModels\\panierVM.cs",
+              "RelativeToolTip": "TangSim\\ViewModels\\panierVM.cs",
+              "ViewState": "AgIAACIBAAAAAAAAAAAswDMBAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T21:56:47.723Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 53,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

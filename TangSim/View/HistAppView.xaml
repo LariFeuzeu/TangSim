@@ -1,0 +1,205 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TangSim.View.HistAppView"
+             xmlns:viewModels="clr-namespace:TangSim.ViewModels"
+             xmlns:converters="clr-namespace:TangSim.Converterss"
+             Title="Historique des Approvisionnements"
+             BackgroundColor="#FAFAFA">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:CountToVisibilityConverter x:Key="CountToVisibilityConverter"/>
+            <Color x:Key="PrimaryColor">#4A6FA5</Color>
+            <Color x:Key="SecondaryColor">#166088</Color>
+            <Color x:Key="AccentColor">#4FC3F7</Color>
+            <Color x:Key="TextPrimary">#263238</Color>
+            <Color x:Key="TextSecondary">#607D8B</Color>
+            <Color x:Key="CardBackground">#FFFFFF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <viewModels:HistAppVM/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <StackLayout Spacing="0">
+            <!-- Filtres de date -->
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions="Auto,Auto"
+                  ColumnSpacing="15"
+                  RowSpacing="10"
+                  Margin="20,20,20,10"
+                  Padding="0">
+
+                <Label Text="DATE DE DÉBUT" 
+                       Grid.Row="0" Grid.Column="0"
+                       FontSize="12"
+                       TextColor="{StaticResource TextSecondary}"
+                       FontAttributes="Bold"
+                       VerticalOptions="End"/>
+
+                <DatePicker Date="{Binding DateDebut, Mode=TwoWay}"
+                           Grid.Row="1" Grid.Column="0"
+                           TextColor="{StaticResource TextPrimary}"
+                           FontSize="14"
+                           BackgroundColor="#F5F5F5"
+                           HeightRequest="45"/>
+
+                <Label Text="DATE DE FIN" 
+                       Grid.Row="0" Grid.Column="1"
+                       FontSize="12"
+                       TextColor="{StaticResource TextSecondary}"
+                       FontAttributes="Bold"
+                       VerticalOptions="End"/>
+
+                <DatePicker Date="{Binding DateFin, Mode=TwoWay}"
+                           Grid.Row="1" Grid.Column="1"
+                           TextColor="{StaticResource TextPrimary}"
+                           FontSize="14"
+                           BackgroundColor="#F5F5F5"
+                           HeightRequest="45"/>
+            </Grid>
+
+            <!-- Bouton Filtrer -->
+            <Button Text="FILTRER"
+                    Command="{Binding FiltrerCommand}"
+                    Margin="90,10,90,20"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    TextColor="White"
+                    FontSize="14"
+                    FontAttributes="Bold">
+                <Button.Shadow>
+                    <Shadow Brush="{StaticResource PrimaryColor}"
+                            Offset="0,5"
+                            Opacity="0.2"
+                            Radius="10"/>
+                </Button.Shadow>
+            </Button>
+
+            <!-- Liste des approvisionnements -->
+            <CollectionView ItemsSource="{Binding ApprovisionnementsFiltres}"
+                           SelectionMode="None"
+                           Margin="20,0,20,20">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="0,10,0,2"
+                               CornerRadius="12"
+                               BackgroundColor="{StaticResource CardBackground}"
+                               HasShadow="True"
+                               Padding="0">
+                            <Frame.Shadow>
+                                <Shadow Brush="#40000000"
+                                        Offset="0,2"
+                                        Opacity="0.1"
+                                        Radius="6"/>
+                            </Frame.Shadow>
+
+                            <Grid RowDefinitions="Auto,Auto" 
+                                  ColumnDefinitions="*,Auto"
+                                  Padding="0">
+                                <!-- En-tête -->
+                                <StackLayout Grid.Row="0" Grid.Column="0"
+                                             Padding="20,2,0,5">
+                                    <Label Text="{Binding NomArticle}"
+                                           FontSize="16"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource TextPrimary}"/>
+                                    <Label Text="{Binding DateApprov, StringFormat='{0:dd MMMM yyyy}'}"
+                                           FontSize="13"
+                                           TextColor="{StaticResource TextSecondary}"
+                                           Margin="0,0,0,0"/>
+                                </StackLayout>
+
+                                <!-- Badge quantité -->
+                                <Frame Grid.Row="0" Grid.Column="1"
+                                       CornerRadius="10"
+                                       BackgroundColor="{StaticResource AccentColor}"
+                                       Padding="10,5"
+                                       Margin="0,15,15,0"
+                                       HeightRequest="30"
+                                       HorizontalOptions="End"
+                                       VerticalOptions="Start">
+                                    <Label Text="{Binding QteApprov, StringFormat='{0} pcs'}"
+                                           FontSize="12"
+                                           TextColor="White"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="Center"/>
+                                </Frame>
+
+                                <!-- Séparateur -->
+                                <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                         HeightRequest="1"
+                                         BackgroundColor="#F0F0F0"
+                                         Margin="20,0"/>
+
+                                <!-- Détails prix -->
+                                <StackLayout Grid.Row="2" Grid.Column="0"
+                                             Orientation="Horizontal"
+                                             Padding="20,12,50,12">
+                                    <Label Text="PRIX APPRO:"
+                                           FontSize="14"
+                                           TextColor="{StaticResource TextSecondary}"
+                                           VerticalOptions="Center"/>
+                                    <Label Text="{Binding PrixApprov, StringFormat='{0:C}'}"
+                                           FontSize="16"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource SecondaryColor}"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                                     
+                                <!-- Montant total -->
+                                <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                                             Orientation="Horizontal"
+                                             Padding="20,50,20,12">
+                                    <Label Text="MONTANT TOTAL:"
+                                           FontSize="14"
+                                           TextColor="{StaticResource TextSecondary}"
+                                           VerticalOptions="Center"/>
+                                    <Label Text="{Binding MontantApprovPersiste, StringFormat='{0:C}'}"
+                                           FontSize="16"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource PrimaryColor}"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Total général -->
+            <Frame Margin="40,0,40,30"
+                   CornerRadius="25"
+                   BackgroundColor="{StaticResource SecondaryColor}"
+                   HasShadow="True"
+                   Padding="20,15"
+                   HorizontalOptions="Fill"
+                   IsVisible="{Binding ApprovisionnementsFiltres.Count, Converter={StaticResource CountToVisibilityConverter}}">
+                <Frame.Shadow>
+                    <Shadow Brush="#40000000"
+                            Offset="0,5"
+                            Opacity="0.2"
+                            Radius="10"/>
+                </Frame.Shadow>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="TOTAL GÉNÉRAL:"
+                           FontSize="14"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           VerticalOptions="Center"/>
+                    <Label Text="{Binding MontantTotal, StringFormat='{0:C}'}"
+                           FontSize="16"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           VerticalOptions="Center"
+                           HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

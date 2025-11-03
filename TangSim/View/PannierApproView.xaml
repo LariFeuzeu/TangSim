@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TangSim.View.PannierApproView"
+             Title="PannierApproView">
+    <StackLayout Padding="20" BackgroundColor="#F8F8F8">
+
+        <!-- Titre de l'article -->
+        <Label Text="{Binding SelectedArticle.Nom}" 
+          FontSize="24" 
+          FontAttributes="Bold" 
+          HorizontalOptions="Center" 
+          TextColor="#2C3E50"
+          Padding="0,10" />
+
+        <!-- Prix de l'article -->
+        <Label Text="{Binding SelectedArticle.PrixU, StringFormat='Prix : {0:C}'}" 
+          FontSize="20" 
+          HorizontalOptions="Center" 
+          TextColor="#27AE60" 
+          Padding="0,5" />
+
+        <!-- Quantité en stock -->
+        <Label Text="{Binding SelectedArticle.QteStock, StringFormat='Stock: {0}'}" 
+          FontSize="18" 
+          HorizontalOptions="Center" 
+          TextColor="#FF7043" 
+          Padding="0,5" />
+
+        <!-- Champs pour le prix d'approvisionnement et la quantité -->
+        <StackLayout Padding="0,15" Spacing="10">
+
+            <!-- Frame pour le prix d'approvisionnement -->
+            <Frame HasShadow="True"
+              BorderColor="#ECECEC"
+              CornerRadius="12"
+              Padding="0"
+              BackgroundColor="White">
+                <Entry x:Name="PrixApprovEntry" 
+                  Placeholder="Entrez le prix d'approvisionnement" 
+                  Text="{Binding PrixApprov, Mode=TwoWay}" 
+                  Keyboard="Numeric" 
+                  FontSize="18"
+                  TextColor="#2C3E50"
+                  PlaceholderColor="#BDC3C7"
+                  HeightRequest="50" />
+            </Frame>
+
+            <!-- Frame pour la quantité à approvisionner -->
+            <Frame HasShadow="True"
+              BorderColor="#ECECEC"
+              CornerRadius="12"
+              Padding="0"
+              BackgroundColor="White">
+                <Entry x:Name="QteApprovEntry" 
+                  Placeholder="Entrez la quantité à approvisionner" 
+                  Text="{Binding QteApprov, Mode=TwoWay}" 
+                  Keyboard="Numeric" 
+                  FontSize="18"
+                  TextColor="#2C3E50"
+                  PlaceholderColor="#BDC3C7"
+                  HeightRequest="50" />
+            </Frame>
+
+        </StackLayout>
+
+        <!-- Affichage de la date d'approvisionnement -->
+        <Frame HasShadow="True"
+          BorderColor="#ECECEC"
+          CornerRadius="12"
+          Padding="0"
+          BackgroundColor="White"
+          Margin="0, 5">
+            <Label Text="{Binding DateApprov, StringFormat='Date Approvisionnement : {0:dd/MM/yyyy}'}"
+              FontSize="18"
+              TextColor="#006633"
+              HorizontalOptions="Center"
+              VerticalOptions="CenterAndExpand"
+              Padding="0, 10"/>
+        </Frame>
+
+        <!-- Affichage du montant de l'approvisionnement -->
+        <Frame HasShadow="True"
+          BorderColor="#ECECEC"
+          CornerRadius="12"
+          Padding="0"
+          BackgroundColor="White"
+          Margin="0, 5">
+            <Label Text="{Binding MontantApprov, StringFormat='Montant: {0:C}'}"
+              FontSize="18"
+              FontAttributes="Italic,Bold"
+              TextColor="#27AE60"
+              HorizontalOptions="Center"
+              VerticalOptions="CenterAndExpand"
+              Padding="0, 10"/>
+        </Frame>
+
+        <!-- Bouton pour valider l'approvisionnement -->
+        <Button Text="Valider l'approvisionnement"
+           Command="{Binding ValiderApprovCommand}"
+           BackgroundColor="#006633"
+           TextColor="White"
+           FontSize="18"
+           CornerRadius="25"
+           HeightRequest="50"
+           HorizontalOptions="FillAndExpand" 
+           Margin="0, 10"/>
+    </StackLayout>
+</ContentPage>

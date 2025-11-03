@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TangSim.View.PanierView"
+             xmlns:viewModels="clr-namespace:TangSim.ViewModels">
+
+    <Shell.TitleView>
+        <AbsoluteLayout>
+            <Label Text="Votre Panier"
+                FontSize="19"
+                Margin="20,20,20,0"
+                FontAttributes="Bold"
+                HorizontalOptions="Start"
+                TextColor="#333" />
+        </AbsoluteLayout>
+    </Shell.TitleView>
+    <!-- Définir le BindingContext -->
+    <ContentPage.BindingContext>
+        <viewModels:panierVM />
+    </ContentPage.BindingContext>
+
+    <!-- Contenu de la page -->
+    <ScrollView>
+        <StackLayout Spacing="0" Padding="1" HorizontalOptions="Center">
+            <!-- Date d'aujourd'hui -->
+            <Label Text="{Binding DateAujourdhui, StringFormat='Date: {0:dd/MM/yyyy}'}"
+                   FontSize="16"
+                   HorizontalOptions="Center"
+                   TextColor="#666"
+                   Margin="0,0,0,5"/>
+
+            <!-- Liste des articles dans le panier -->
+            <CollectionView ItemsSource="{Binding Panier.Items}"
+                            SelectionMode="None"
+                            VerticalOptions="FillAndExpand">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5" Margin="2" BackgroundColor="White">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <!-- Colonne pour le nom de l'article -->
+                                <ColumnDefinition Width="*"/>
+                                <!-- Colonne pour le prix unitaire -->
+                                <ColumnDefinition Width="Auto"/>
+                                <!-- Colonne pour les boutons de quantité -->
+                                <ColumnDefinition Width="Auto"/>
+                                <!-- Colonne pour le prix total -->
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Nom de l'article -->
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Article.Nom}" 
+                                   FontSize="16" FontAttributes="Bold" TextColor="#333"
+                                   VerticalOptions="Center" Padding="0,0,5,0"
+                                   LineBreakMode="TailTruncation"/>
+                            <!-- Tronquer le texte si trop long -->
+
+                            <!-- Prix unitaire de l'article -->
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Article.PrixU, StringFormat='{0:C}'}"
+                                   FontSize="14" TextColor="#006633"
+                                   VerticalOptions="Center" HorizontalOptions="End" Padding="5,0"/>
+
+                            <!-- Frame pour entourer les boutons de quantité avec une bordure -->
+                            <Frame Grid.Row="0" Grid.Column="2" BorderColor="gray" CornerRadius="30" Padding="0" HorizontalOptions="Center" VerticalOptions="Center">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" Spacing="0">
+                                    <Button Text="-" 
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:panierVM}}, Path=DiminuerPanierCommand}"
+                                            CommandParameter="{Binding Article}"
+                                            IsEnabled="{Binding IsNotProcessing}"
+                                            BackgroundColor="White"
+                                            WidthRequest="10"
+                                            HeightRequest="10"
+                                            CornerRadius="60" 
+                                            FontSize="16"
+                                            TextColor="Black"/>
+                                    <Label Text="{Binding Quantite}" 
+                                           FontSize="16" TextColor="#333"
+                                           VerticalOptions="Center" HorizontalOptions="Center"
+                                           Margin="5,0"/>
+                                    <Button Text="+" 
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:panierVM}}, Path=AugmenterPanierCommand}"
+                                            CommandParameter="{Binding Article}"
+                                            IsEnabled="{Binding IsNotProcessing}"
+                                            BackgroundColor="White"
+                                            WidthRequest="10"
+                                            HeightRequest="10"
+                                            CornerRadius="60" 
+                                            FontSize="16"
+                                            TextColor="Black"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <!-- Prix total pour cet article -->
+                            <Label Grid.Row="0" Grid.Column="3" Text="{Binding PrixTotal, StringFormat='{0:C}'}"
+                                   FontSize="14" TextColor="#006633"
+                                   VerticalOptions="Center" HorizontalOptions="End" Padding="5,0"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Conteneur principal -->
+            <Grid RowDefinitions="*,Auto">
+
+                <!-- Section fixe centrée en bas -->
+                <StackLayout Grid.Row="1"
+                 Padding="20,10"
+                 HorizontalOptions="Center"
+                 VerticalOptions="End"
+                 WidthRequest="400"
+                 Spacing="15">
+
+                    <!-- Total centré -->
+                    <Label Text="{Binding Total, StringFormat='Total : {0:C}'}"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           TextColor="#006633"/>    
+
+                    <!-- Boutons centrés -->
+                    <HorizontalStackLayout HorizontalOptions="Center" 
+                               Spacing="15">
+
+                        <!-- Bouton Valider -->
+                        <Button Text="Valider"
+                    Command="{Binding ValiderAchatCommand}"
+                    BackgroundColor="#006633"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="25"
+                    WidthRequest="150"
+                    HeightRequest="50"/>
+
+                        <!-- Bouton Annuler -->
+                        <Button Text="Annuler"
+                    Command="{Binding AnnulerPanierCommand}"
+                    BackgroundColor="Red"
+                    TextColor="#FFFFFF"
+                    FontAttributes="Bold"
+                    CornerRadius="25"
+                    WidthRequest="150"
+                    HeightRequest="50"/>
+                    </HorizontalStackLayout>
+                </StackLayout>
+            </Grid>
+
+
+        </StackLayout>
+    </ScrollView>
+    <!-- Déclaration des ressources au bon niveau -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Style pour les Labels -->
+            <Style TargetType="Label" x:Key="DateLabelStyle">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#5F5F5F"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="0,0,5,0"/>
+            </Style>
+
+            <!-- Style pour les DatePickers -->
+            <Style TargetType="DatePicker" x:Key="ModernDatePicker">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="TextColor" Value="#333333"/>
+                <Setter Property="BackgroundColor" Value="#FAFAFA"/>
+                <Setter Property="MinimumWidthRequest" Value="150"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+</ContentPage>

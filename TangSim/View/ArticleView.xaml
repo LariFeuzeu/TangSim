@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TangSim.View.ArticleView">
+    <Shell.TitleView>
+        <AbsoluteLayout>
+            <Label Text="Aapprovisionnement"
+           FontSize="19"
+           Margin="20,20,20,0"
+           FontAttributes="Bold"
+           HorizontalOptions="Start"
+           TextColor="#333" />
+        </AbsoluteLayout>
+    </Shell.TitleView>
+
+    <!-- CollectionView simplifi�e -->
+    <CollectionView ItemsSource="{Binding Articles}" 
+                  SelectionChanged="OnArticleTapped" 
+                  SelectionMode="Single"
+                  x:Name="collectionView"
+                  BackgroundColor="Transparent"
+                  VerticalOptions="FillAndExpand" 
+                  HorizontalOptions="FillAndExpand">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <!-- Utilisation d'un Grid pour une disposition propre et bien align�e -->
+                <Grid Padding="0" Margin="2" BackgroundColor="White" 
+                      HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+
+                    <!-- D�finir les lignes et les colonnes du Grid -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <!-- Premi�re ligne pour l'affichage -->
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <!-- Colonne pour l'image (ajust�e � la taille de l'image) -->
+                        <ColumnDefinition Width="*"/>
+                        <!-- Colonne pour le nom et quantit� -->
+                        <ColumnDefinition Width="Auto"/>
+                        <!-- Colonne pour le prix -->
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Image de l'article avec coins arrondis, align�e � gauche -->
+                    <!-- Image de l'article avec coins arrondis, alignée à gauche -->
+                    <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent" 
+                               CornerRadius="30" HasShadow="False" Padding="0" HorizontalOptions="Start" 
+                               WidthRequest="60" HeightRequest="60">
+                        <Image Source="{Binding ImagePath}"
+                                   HeightRequest="60" WidthRequest="60" 
+                                   Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                    </Frame>
+
+
+
+                    <!-- Nom de l'article, align� � gauche et proche de l'image -->
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Nom}" 
+                           FontSize="18" FontAttributes="Bold" TextColor="#333" 
+                           VerticalOptions="Center" HorizontalOptions="Start" 
+                           Padding="8,0,0,0" />
+                    <!-- Padding ajust� pour rapprocher du nom -->
+
+                    <!-- Quantit� en stock, align�e � gauche, sous le nom -->
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding QteStock, StringFormat='Stock: {0}'}" 
+                           FontSize="16" TextColor="#db9303" 
+                           VerticalOptions="Center" HorizontalOptions="Start" 
+                           Padding="3,0,0,0" Margin="0,40,10,0 "/>
+
+                    <!-- Prix de l'article, align� � droite -->
+                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding PrixU, StringFormat='Prix: {0:C}'}" 
+                           FontSize="16" TextColor="#006633" 
+                           VerticalOptions="Center" HorizontalOptions="End" Padding="5,0"/>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
